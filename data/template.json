@@ -1,0 +1,35 @@
+{
+  "index_patterns": ["log-data-*"],
+  "settings": {
+    "number_of_shards": 1
+  },
+  "mappings": {
+    "properties": {
+      "timestamp": { "type": "date" },
+      "index_name": { "type": "keyword" },
+      "level_name": { "type": "keyword" },
+      "body": {
+        "properties": {
+          "tag": { "type": "keyword" },
+          "func": { "type": "keyword" },
+          "provider": { "type": "keyword" },
+          "service": { "type": "keyword" },
+          "method": { "type": "keyword" },
+          "response_time": { "type": "float" },
+          "service_response": { "type": "text" },
+          "status_code": { "type": "integer" },
+          "service_status": { "type": "keyword" },
+          "dsName": { "type": "keyword" },
+          "national_code": { "type": "keyword" },
+          "level": { "type": "keyword" },
+          "LT": { "type": "date", "format": "HH:mm:ss.SSSSSS" },
+          "unique_id": { "type": "keyword" },
+          "uuid": { "type": "keyword" },
+          "LID": { "type": "keyword" },
+          "address": { "type": "text", "fields": { "keyword": { "type": "keyword", "ignore_above": 256 } } }
+        }
+      },
+      "message": { "type": "text" }
+    }
+  }
+}
